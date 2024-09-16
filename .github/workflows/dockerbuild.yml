@@ -23,6 +23,6 @@ jobs:
     - name: Build and tag Docker image with Git commit hash
       run: |
         GIT_COMMIT_HASH=${{ github.sha }}
-        docker build --build-arg GIT_COMMIT_HASH=$GIT_COMMIT_HASH -t alp:$GIT_COMMIT_HASH .
-        docker push alp:$GIT_COMMIT_HASH
+        docker build --build-arg GIT_COMMIT_HASH=$GIT_COMMIT_HASH -t "${{ secrets.DOCKER_USERNAME }}"/alp:$GIT_COMMIT_HASH .
+        docker push "${{ secrets.DOCKER_USERNAME }}"/alp:$GIT_COMMIT_HASH
 
